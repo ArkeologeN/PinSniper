@@ -2,14 +2,25 @@
 <html>
   <head>
     <style type="text/css">
+    img {
+      margin-bottom: 10px;
+    }
+    input {
+      margin: 5px;
+      padding: 3px;
+    }
+
     button {
       background-color: #0F4A87; 
       color: white; 
       border: none; 
       padding: 10px;
+      border-radius: 5px;
     }
+
+
     button:hover {
-     background-color: #C7D535;  
+     background-color: #C7D535;
     }
     </style>
   	<script type="text/javascript" src="popup.js"></script>
@@ -17,9 +28,10 @@
   <body>
   <div style="text-align: center;">
     <img src="logo.jpg" style="width: 200px; height: 80px;" />
-	  <input type="text" id="keyword" style="width: 150px;" placeholder="Keyword or String" />
-	  <input type="number" id="pages" style="width: 150px;" placeholder="Number of pages." />
     <br />
+	  <input type="text" id="keyword" style="width: 150px;" placeholder="Keyword" />
+	  <input type="number" id="pages" style="width: 150px;" placeholder="Number of pages." />
+    
 	  	<label> Sort By
 		  	<select id="sorting">
 		  		<option>Pins</option>
