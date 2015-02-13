@@ -18,7 +18,7 @@
       "js":      ["jquery-1.11.2.min.js","content.js"]
   }],
   "permissions": [
-      "activeTab", "tabs", "http://*/*", "https://*/*"
+      "activeTab", "tabs", "http://*/*", "https://*/*", "storage"
   ],
   "icons": { "16": "img-16.png", "128": "img-128.png" }
 }

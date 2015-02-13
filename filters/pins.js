@@ -1,11 +1,10 @@
-var pages = 5;
+console.log(__sniper);
+var sniper = JSON.parse(__sniper);
+var pages = sniper.pages;
+
 var count = 0;
 var mylist = [];
 var timeout;
-
-alert($('#keyword').val());
-alert($('#pages').val());
-
 load();
  
 function load(){ 

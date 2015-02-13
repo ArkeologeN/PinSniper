@@ -1,5 +1,7 @@
 function clickHandler(e) {
-    chrome.extension.sendMessage({directive: "popup-click"}, function(response) {
+	var keyword = document.getElementById('keyword').value;
+	var pages = document.getElementById('pages').value;
+    chrome.extension.sendMessage({directive: "popup-click", pages: pages, keyword: keyword}, function(response) {
         this.close(); // close the popup when the background finishes processing request
     });
 }
