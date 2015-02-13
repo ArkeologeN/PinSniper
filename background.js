@@ -3,17 +3,19 @@ chrome.extension.onMessage.addListener(
         switch (request.directive) {
         case "popup-click":
             var j = JSON.stringify(request);
-            chrome.tabs.executeScript(null, {
-                code: "var __sniper = '" + j + "'" 
-            }, function() {
-                chrome.tabs.executeScript(null, { // defaults to the current tab
-                    file: "filters/pins.js", // script to inject into page and run in sandbox
-                    allFrames: true // This injects script into iframes in the page and doesn't work before 4.0.266.0.
+            chrome.tabs.create({'url': 'https://www.pinterest.com/?q=' + request.keyword}, function(tab) {
+                chrome.tabs.executeScript(null, {
+                    code: "var __sniper = '" + j + "'" 
+                }, function() {
+                    chrome.tabs.executeScript(null, { // defaults to the current tab
+                        file: "filters/pins.js", // script to inject into page and run in sandbox
+                        allFrames: true // This injects script into iframes in the page and doesn't work before 4.0.266.0.
+                    });
+                    // execute the content script
+                    sendResponse({}); // sending back empty response to sender
+                    
                 });
-                // execute the content script
-                sendResponse({}); // sending back empty response to sender
-                
-            });
+              });
             break;
         default:
             // helps debug when request directive doesn't match
