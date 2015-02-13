@@ -3,7 +3,7 @@ chrome.extension.onMessage.addListener(
         switch (request.directive) {
         case "popup-click":
             var j = JSON.stringify(request);
-            chrome.tabs.create({'url': 'https://www.pinterest.com/?q=' + request.keyword}, function(tab) {
+            chrome.tabs.create({'url': 'https://www.pinterest.com/search/pins/?q=' + request.keyword + '&term_meta%5B%5D=' + request.keyword + '%7Ctyped' + request.keyword}, function(tab) {
                 chrome.tabs.executeScript(null, {
                     code: "var __sniper = '" + j + "'" 
                 }, function() {
