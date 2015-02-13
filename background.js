@@ -2,8 +2,7 @@ chrome.extension.onMessage.addListener(
     function(request, sender, sendResponse) {
         switch (request.directive) {
         case "popup-click":
-        var j = JSON.stringify(request);
-        console.log(j);
+            var j = JSON.stringify(request);
             chrome.tabs.executeScript(null, {
                 code: "var __sniper = '" + j + "'" 
             }, function() {
